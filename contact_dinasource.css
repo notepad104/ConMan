@@ -1,0 +1,16 @@
+.contact .media-heading{
+    margin-bottom: 10px !important;
+  }
+ .contact  .meta a{
+          color: #777;
+          font-size: small;
+        }
+        a:hover{
+          text-decoration: none;
+        }
+        .thumb{ 
+        margin-right: 10px;
+        }
+    }
+}
+

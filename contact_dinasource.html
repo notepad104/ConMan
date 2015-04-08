@@ -1,0 +1,309 @@
+<head>
+  <title>ConMan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+
+</body>
+
+<template name = "SignUp">
+  <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign In</div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style = "display:none;" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form id="loginform" class="form-horizontal" role="form" action="/signin" method="post">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" name="email" value="" placeholder="email" id = "signInEmail">                                        
+                                    </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input type="password" class="form-control" name="password" placeholder="password" id="signInPassword">
+                                    </div>
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <button id="btn-signin" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp; Log In</button>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            Don't have an account! 
+                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            Sign Up Here
+                                        </a>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </form>     
+                        </div>                     
+                    </div>  
+        </div>
+        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-title">Sign Up</div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+                        </div>  
+                        <div class="panel-body" >
+                            <form id="signupform" class="form-horizontal" role="form" action="/sign-up" method = "post">
+                                
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <span></span>
+                                </div>
+                                    
+                                  
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">Email</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="email" placeholder="Email Address" id = "signUpEmail">
+                                    </div>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label for="firstname" class="col-md-3 control-label">First Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="firstname" placeholder="First Name" id="signUpFname">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="lastname" placeholder="Last Name" id="signUpLname">
+                                    </div>
+                                </div>
+  
+                                <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Password</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="passwd" placeholder="Password" id="signUpPassword">
+                                    </div>
+                                </div>
+                                 <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Confirm Password</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" name="cpasswd" placeholder="Password" id="signUpPasswordConfirm">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- Button -->                                        
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp; Sign Up</button>
+                                    </div>
+                                </div>
+
+
+                            </form>
+                         </div>
+                    </div>
+                
+         </div> 
+    </div>
+    
+</template>
+
+<template name="nav">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/"> <i class="icon-book icon-1x"></i>ConMan</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+             <li class="active"><a href="/">List Contacts <span class="sr-only">(current)</span></a></li>
+                 <li><a href="/addcontact">Add Contact</a></li>
+            </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+            <a class="sign-out" href = '/' id="signOut">Sign Out</a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+</template>
+
+<template name="home">
+{{>nav}}
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <form class="form-horizontal" role="form">
+        <fieldset>
+
+             <legend>AddressBook</legend>
+                {{#each contactName}}
+                     <div class="media-heading">
+
+                    <h3>
+                    <img src="{{image}}" width="20%" height="20%">
+                        {{name}}
+                    </h3>
+                        </div>
+                       <div class="media-body">
+                      <dl>
+                        <dt>Phone Number:</dt><dd>{{phone}}</dd>
+                        <dt>Email:</dt><dd>{{email}}</dd>
+                        <dt>Address:</dt><dd>{{address}}</dd>
+                      </dl>
+                    </div>
+                    <div class="contact-btn-wrapper">
+                    <a href="addcontact/edit/{{_id}}" class="edit-contact btn btn-outline" id = "edit-contact"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                    <a href="addcontact/delete/{{_id}}" class="delete-contact btn btn-outline" id = "delete-contact">
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                      </a>
+                    </div>
+            {{/each}}
+
+       
+        </fieldset>
+      </form>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
+
+</template>
+
+<template name = "addContact">
+{{>nav}}
+ <div class="container">    
+        <div id="contact" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Add Contact</div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style = "display:none;" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form id="addcontact" class="form-horizontal" role="form" action="/" method="post">
+                          
+                              <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" name="add-name" value="" placeholder="Full Name" id = "add-name" required>                                        
+                                    </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" name="email" value="" placeholder="Email" id = "add-email">                                        
+                                    </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                                        <input type="text" class="form-control" name="phone" value="" placeholder="Phone No." id = "add-phone" required> 
+                                    </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                                        <input type="text" class="form-control" name="address" value="" placeholder="Address" id = "add-address"> 
+                                    </div>
+
+                           <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                            <input id="files" type="file" class="file form-control" name = "files[]">
+                        </div>
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <button id="btn-addcontact" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp; Add Contact</button>
+
+                                    </div>
+                                </div>
+  
+                            </form>     
+                        </div>                     
+                    </div>  
+        </div>
+    </div>
+
+</template>
+
+<template name = "editContact">
+{{>nav}}
+ <div class="container">    
+        <div id="contact" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset">                    
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Add Contact</div>
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style = "display:none;" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form id="editcontact" class="form-horizontal" role="form" action="/" method="post">
+                          
+                              <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" name="add-name"  placeholder="Full Name" id = "edit-name" required value="{{name}}">                                        
+                                    </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input type="text" class="form-control" name="email" placeholder="Email" id = "edit-email" value="{{email}}">                                        
+                                    </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                                        <input type="text" class="form-control" name="phone"  placeholder="Phone No." id = "edit-phone" required value="{{phone}}"> 
+                                    </div>
+
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                                        <input type="text" class="form-control" name="address"  placeholder="Address" id = "edit-address" value="{{address}}"> 
+                                        <input type="hidden" class="form-control" name="previmage"  placeholder="Address" id = "previmage" value="{{image}}"  > 
+                                    </div>
+                            
+                           <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                            <input id="files" type="file" class="file form-control" value = "{{image}}">
+                        </div>
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <button id="btn-editcontact" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp; Edit Contact</button>
+
+                                    </div>
+                                </div>
+  
+                            </form>     
+                        </div>                     
+                    </div>  
+        </div>
+    </div>
+</template>
+
+<template name = 'deleteContact'>
+    
+</template>
