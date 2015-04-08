@@ -1,9 +1,0 @@
-I would like to introduce myself as a pre-final year student of Indian Institute of Information Technology Gwalior, major in Information Technology(B.Tech + M.Tech). I think I would be a right person for the internship as I have quite an experience developing apps in Javascript, mainly using Nodejs, Socket.io. I am comfortable in Javascript in both Frontend and Backend. I have also build apps on MEAN stack. I also have the knwoledge of Twitter Bootstrap and Template engines like Jade, EJS. Moreover, I have the habit of doing every task that ia assigned to me as good as possible keeping in mind the time limits. This internship will provide me an experience how things go in a professional environment.  I would be an asset to the organization.
-
-
-This problem was asked to me in a Skype interview. He gave me a N x M chessboard and a knight placed on a random position. I had to find out the probability that the knight stays inside of chessboard..
-My Solution: ﻿It was firstly difficult for me to analyse the situation. I started to realize that a knight can move in 8 direction taking 2.5 steps each. So, for each position, he can move to 8 other positions inside the chessboard. I applied the Depth First Search on the knight going to all the possible  Given a position of a knight, the probability of going to any one of the position is 1/8. I wrote a recursive function increasing number of steps at each node.
-The solution was correct but he wanted me to optimize the code as it takes exponential time. I converted the recursion into a 3D dynamic programming. The complexity was reduced but he wanted me to optimize more. This s where the problem started. After thinking for 4-5 minutes, I realized that the third parameter of DP was only depending on just previous one. So, I used an approach to take only 2 indices in the third parameter rather than taking the whole by converting index as  (i && 1). I never thought I could even think this.
-
-
-
